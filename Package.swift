@@ -1,17 +1,23 @@
-// swift-tools-version:5.3
+// swift-tools-version: 5.8
+// The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
-let package = Package(name: "ObjectMapper",
-                      platforms: [.macOS(.v10_10),
-                                  .iOS(.v13),
-                                  .tvOS(.v9),
-                                  .watchOS(.v2)],
-                      products: [.library(name: "ObjectMapper",
-                                          targets: ["ObjectMapper"])],
-                      targets: [.target(name: "ObjectMapper",
-                                        path: "Sources"),
-                                .testTarget(name: "ObjectMapperTests",
-                                            dependencies: ["ObjectMapper"],
-                                            path: "Tests")],
-                      swiftLanguageVersions: [.v5])
+let package = Package(
+    name: "ObjectMapper",
+    products: [
+        // Products define the executables and libraries a package produces, making them visible to other packages.
+        .library(
+            name: "ObjectMapper",
+            targets: ["ObjectMapper"]),
+    ],
+    targets: [
+        // Targets are the basic building blocks of a package, defining a module or a test suite.
+        // Targets can depend on other targets in this package and products from dependencies.
+        .target(
+            name: "ObjectMapper"),
+        .testTarget(
+            name: "ObjectMapperTests",
+            dependencies: ["ObjectMapper"]),
+    ]
+)
