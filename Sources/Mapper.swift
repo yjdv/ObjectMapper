@@ -112,7 +112,7 @@ public final class Mapper<N: BaseMappable> {
 					object.mapping(map: map)
 					return object
 				}
-			} catch let error {
+			} catch {
 				#if DEBUG
 				#if !os(Linux)
 				let exception: NSException

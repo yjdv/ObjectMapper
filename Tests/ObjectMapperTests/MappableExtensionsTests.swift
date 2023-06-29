@@ -45,11 +45,8 @@ struct TestMappable: Mappable, Equatable, Hashable {
 		value <- map["value"]
 	}
 	
-	var hashValue: Int {
-		if let value = value {
-			return value.hashValue
-		}
-		return NSIntegerMax
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(value)
 	}
 }
 
